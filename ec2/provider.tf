@@ -12,12 +12,13 @@ terraform {
   }
 }
 
+provider "tls" {
+  alias = "private_key"
+
+}
+
 provider "aws" {
   region = "eu-west-1" #la region de Irlanda
 
 }
 
-provider "tls" {
-  alias = "private_key"
-
-}
