@@ -19,9 +19,10 @@ resource "aws_key_pair" "kc_public_key" {
 
 resource "aws_instance" "basic-instance" {
   #ami = "ami-0a1f6cc8163bdcc75"
-  ami           = data.aws_ami.amazon_linux.id # id del data consultado
-  instance_type = var.instance_type            # tipo de instancia 
-  
+  ami           = data.aws_ami.amazon_linux.id        # id del data consultado
+  instance_type = var.instance_type                   # tipo de instancia 
+  key_name      = aws_key_pair.kc_public_key.key_name #Asociamos la key_pair o llave publica
+
   tags = {
     Name = "kc-terraform-ec2-carlos" # tag de la intancia  
   }
