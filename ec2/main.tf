@@ -16,6 +16,11 @@ resource "aws_key_pair" "kc_public_key" {
 
 }
 
+resource "aws_security_group" "kc_sg" {
+  name        = "KC Security Group  Carlos"
+  description = "KC Security Group  Carlos"
+
+}
 
 resource "aws_instance" "basic-instance" {
   #ami = "ami-0a1f6cc8163bdcc75"
