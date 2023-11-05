@@ -3,8 +3,8 @@ resource "aws_instance" "basic-instance" {
   ami           = data.aws_ami.amazon_linux.id # id del data consultado
   instance_type = var.instance_type            # tipo de instancia 
 
-  # tags = {
-  #   Name = "kc-terraform-ec2-carlos" # tag de la intancia  
-  # }
+  tags = {
+    Name = "kc-terraform-ec2-carlos" # tag de la intancia  
+  }
 
 }
