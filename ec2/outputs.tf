@@ -4,4 +4,14 @@ output "ami_id" {
 
 }
 
+output "arn" {
+  description = "EC2 ARN"
+  value       = data.aws_ami.amazon_linux.arn
 
+}
+
+output "private_ip" {
+  description = "EC2 Private IP"
+  value       = aws_instance.basic-instance.private_ip
+
+}
