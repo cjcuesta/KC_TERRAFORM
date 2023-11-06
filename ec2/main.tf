@@ -52,10 +52,6 @@ resource "aws_security_group_rule" "kc_http" {
 
 }
 
-
-
-
-
 resource "aws_instance" "basic-instance" {
   #ami = "ami-0a1f6cc8163bdcc75"
   ami                    = data.aws_ami.amazon_linux.id        # id del data consultado
@@ -66,5 +62,15 @@ resource "aws_instance" "basic-instance" {
   tags = {
     Name = "kc-terraform-ec2-carlos" # tag de la instancia  
   }
+
+  user_data = <<-EOT
+      #!/bin/bash
+
+      yum install -y httpd
+      systemctl enable httpd
+      systemctl start httpd
+      echo "<h1>Hello from $(hostname -f)</h1>" > /var/www/html/index.html
+    EOT  
+
 
 }
