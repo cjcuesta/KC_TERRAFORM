@@ -22,6 +22,18 @@ resource "aws_security_group" "kc_sg" {
 
 }
 
+resource "aws_security_group_rule" "kc_ssh" {
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.kc_sg.id
+
+}
+
+
+
 resource "aws_instance" "basic-instance" {
   #ami = "ami-0a1f6cc8163bdcc75"
   ami           = data.aws_ami.amazon_linux.id        # id del data consultado
