@@ -33,7 +33,7 @@ resource "aws_security_group_rule" "kc_ssh" {
 }
 
 resource "aws_security_group_rule" "kc_egress" {
-  type              = "ingress"
+  type              = "egress"
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
