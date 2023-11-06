@@ -10,8 +10,7 @@ output "arn" {
 
 }
 
-output "private_ip" {
-  description = "EC2 Private IP"
-  value       = aws_instance.basic-instance.private_ip
-
+output "public_ip" {
+    description = "EC2 Public IP"
+    value = aws_instance.basic-instance.public_ip  
 }
