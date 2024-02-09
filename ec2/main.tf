@@ -19,6 +19,8 @@ resource "aws_key_pair" "kc_public_key" {
 resource "aws_security_group" "kc_sg" {
   name        = "KC Security Group  Carlos"
   description = "KC Security Group  Carlos"
+  vpc_id      = aws_vpc.this.id
+
 
 }
 
